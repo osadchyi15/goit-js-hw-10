@@ -42,7 +42,7 @@ let options = {
                        transitionIn: 'flipInX',
                        transitionOut: 'flipOutX',
                        position: 'topRight',
-                       iconUrl: '/src/img/alert-icon.svg',
+                       iconUrl: './img/alert-icon.svg',
                        iconColor: '#FAFAFB',
                    });
         } else {
