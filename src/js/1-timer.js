@@ -1,4 +1,4 @@
-'use script'
+'use strict';
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
@@ -18,7 +18,7 @@ const secondsBlock = document.querySelector('[data-seconds]');
      startBtn.setAttribute('disabled', '');
 
 let userSelectedDate;
-let interval
+let timeInterval
 
 let options = {
     enableTime: true,
@@ -60,12 +60,12 @@ let options = {
 flatpickr(timeInput, options);
 
 startBtn.addEventListener('click', () => {
-    if (interval) clearInterval(interval);
+    if (timeInterval) clearInterval(timeInterval);
     startBtn.setAttribute('disabled', '');
     startBtn.classList.remove('right-date');
     timeInput.setAttribute('disabled', '');
     convertMs();
-    interval = setInterval(convertMs, 1000);
+    timeInterval = setInterval(convertMs, 1000);
      })
 
 let ms;
@@ -75,7 +75,7 @@ function convertMs(ms) {
     ms = userSelectedDate.getTime() - Date.now();
 
     if (ms < 0) {
-        clearInterval(interval);
+        clearInterval(timeInterval);
         timeInput.removeAttribute('disabled', '');
         return;
     };
