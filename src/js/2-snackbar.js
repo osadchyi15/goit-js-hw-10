@@ -61,4 +61,6 @@ function promiseGenerator(e) {
                iconColor: '#fff',
       });
     });
+  
+  console.log(promise);
 };
